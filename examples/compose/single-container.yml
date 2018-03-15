@@ -8,12 +8,11 @@ services:
     image: hdp/postgres
     networks:
      dev:
-      aliases:
-        - postgres
+       aliases:
+          - postgres
     environment:
      - AMBARI_DDL_URL=${AMBARI_DDL_URL}
-    network_mode: bridge
-  ambari-server.dev:
+\  ambari-server.dev:
     build: 
       context: ../../containers/ambari-server
       args:
@@ -23,7 +22,6 @@ services:
      dev:
       aliases:
         - ambari-server 
-    network_mode: bridge
     ports:
      - "8080:8080"
      - "8440:8440"
@@ -36,10 +34,9 @@ services:
     image: hdp/node
     privileged: true
     networks:
-    dev:
-      aliases:
-        - dn0 
-    network_mode: bridge
+      dev:
+        aliases:
+          - dn0 
     ports:
      # ZooKeeper
      - "2181:2181"
