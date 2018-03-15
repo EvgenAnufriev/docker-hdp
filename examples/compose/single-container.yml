@@ -12,7 +12,7 @@ services:
           - postgres
     environment:
      - AMBARI_DDL_URL=${AMBARI_DDL_URL}
-\  ambari-server.dev:
+  ambari-server.dev:
     build: 
       context: ../../containers/ambari-server
       args:
