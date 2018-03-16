@@ -10,6 +10,8 @@ services:
      dev:
        aliases:
           - postgres
+    hostname: postgres
+    domainname: dev
     environment:
      - AMBARI_DDL_URL=${AMBARI_DDL_URL}
   ambari-server.dev:
@@ -22,6 +24,8 @@ services:
      dev:
       aliases:
         - ambari-server 
+    hostname: ambari-server
+    domainname: dev
     ports:
      - "8080:8080"
      - "8440:8440"
@@ -37,6 +41,8 @@ services:
       dev:
         aliases:
           - dn0 
+    hostname: dn0
+    domainname: dev
     ports:
      # ZooKeeper
      - "2181:2181"
