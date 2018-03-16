@@ -106,6 +106,8 @@ services:
      - "9995:9995"
      # Kerberos
      #- "88:88"
+     # Collection metrics
+     -6188:6188
 networks:
   dev:
     driver: bridge
