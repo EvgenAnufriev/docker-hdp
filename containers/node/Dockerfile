@@ -13,17 +13,17 @@ RUN yum install -y hadoop*
 RUN yum install -y zookeeper*
 RUN yum install -y hive*
 #RUN yum install -y phoenix_*
-RUN yum install -y ranger*
+#RUN yum install -y ranger*
 #RUN yum install -y storm_*
-RUN yum install -y kafka_*
+#RUN yum install -y kafka_*
 RUN yum install -y pig_*
 #RUN yum install -y datafu_*
 RUN yum install -y spark* livy*
 #RUN yum install -y zeppelin*
 #RUN yum install -y falcon_*
 RUN yum install -y oozie_*
-#RUN yum install -y lucidworks-hdpsearch
-#RUN yum install -y smartsense*
+RUN yum install -y lucidworks-hdpsearch
+RUN yum install -y smartsense*
 #RUN yum install -y druid*
 #RUN yum install -y superset*
 RUN yum install -y lzo snappy-devel rpcbind
