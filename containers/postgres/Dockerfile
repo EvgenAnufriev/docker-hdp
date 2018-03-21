@@ -1,4 +1,4 @@
-FROM postgres
+FROM postgres:9.4
 RUN apt-get update -y
 RUN apt-get install -y wget
 ARG AMBARI_DDL_URL
