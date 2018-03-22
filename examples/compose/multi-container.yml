@@ -7,17 +7,24 @@ services:
       - AMBARI_DDL_URL=${AMBARI_DDL_URL}
     image: hdp/postgres
     networks:
-     - dev
+     dev:
+       aliases:
+          - postgres
     hostname: postgres
     domainname: dev
+    ports:
+      - "5432:5432"  
+    
   ambari-server.dev:
     build: 
       context: ../../containers/ambari-server
       args:
        - AMBARI_REPO_URL=${AMBARI_REPO_URL}
     image: hdp/ambari-server
-    networks:
-     - dev
+   networks:
+     dev:
+      aliases:
+        - ambari-server 
     hostname: ambari-server
     domainname: dev
     ports:
@@ -28,10 +35,12 @@ services:
       args:
        - AMBARI_REPO_URL=${AMBARI_REPO_URL}
        - HDP_REPO_URL=${HDP_REPO_URL}
-    image: hdp/master
+    image: hdp/node
     privileged: true
     networks:
-     - dev
+      dev:
+       aliases:
+         - master0
     hostname: master0
     domainname: dev
     ports:
@@ -85,10 +94,12 @@ services:
       args:
        - AMBARI_REPO_URL=${AMBARI_REPO_URL}
        - HDP_REPO_URL=${HDP_REPO_URL}
-    image: hdp/worker
+    image: hdp/node
     privileged: true
     networks:
-     - dev
+      dev:
+        aliases:
+          - dn0
     hostname: dn0
     domainname: dev
     ports:
@@ -110,6 +121,39 @@ services:
      - "8983:8983"
      # Kafka
      - "6667:6667"
+  dn1.dev:
+    build:
+      context: ../../containers/node
+      args:
+       - AMBARI_REPO_URL=${AMBARI_REPO_URL}
+       - HDP_REPO_URL=${HDP_REPO_URL}
+    image: hdp/node
+    privileged: true
+    networks:
+      dev:
+        aliases:
+          - dn1
+    hostname: dn1
+    domainname: dev
+ ports:
+     # HDFS
+     - "50071:50070"
+     - "50472:50470"
+     - "50076:50075"
+     - "50476:50475"
+     - "50011:50010"
+     - "50021:50020"
+     - "50031:50030"
+     # HBase
+     - "16021:16020"
+     - "16031:16030"
+     # Yarn
+     - "45455:45454"
+     - "8043:8042"
+     # Solr
+     - "8984:8983"
+     # Kafka
+     - "6668:6667"
 
 networks:
   dev:
