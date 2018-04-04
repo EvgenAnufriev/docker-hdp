@@ -5,6 +5,7 @@ ARG AMBARI_VER
 ARG HDP_VER
 ARG HDP_UTILS_VER
 ARG AMBARI_STACK
+ARG REPO_HOST_ADDRESS
 
 RUN echo AMBARI_STACK=${AMBARI_STACK} && \
 echo HDP_VER=${HDP_VER}
@@ -35,7 +36,7 @@ WORKDIR /var/www/html/
 RUN echo \#VERSION_NUMBER=${AMBARI_VER} >> ambari.repo && \
 echo [ambari-${AMBARI_VER}] >> ambari.repo && \
 echo name=ambari Version - ambari-${AMBARI_VER} >> ambari.repo && \
-echo baseurl=http://$REPO_HOST_ADDRESS/ >> ambari.repo && \
+echo baseurl=$REPO_HOST_ADDRESS/ >> ambari.repo && \
 echo gpgcheck=0 >> ambari.repo && \
 echo enabled=1 >> ambari.repo && \ 
 echo priority=1 >> ambari.repo
@@ -45,7 +46,7 @@ echo priority=1 >> ambari.repo
 RUN echo \#VERSION_NUMBER=$HDP_VER >> hdp.repo  && \
 echo [HDP-$HDP_VER] >> hdp.repo  && \
 echo name=HDP Version - HDP-$HDP_VER >> hdp.repo  && \
-echo baseurl=http://$REPO_HOST_ADDRESS/ >> hdp.repo  && \
+echo baseurl=$REPO_HOST_ADDRESS/ >> hdp.repo  && \
 echo gpgcheck=0 >> hdp.repo  && \
 echo enabled=1 >> hdp.repo  && \
 echo priority=1 >> hdp.repo  && \
