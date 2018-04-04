@@ -4,8 +4,8 @@ services:
       image: hdp/repo_cache
       hostname: repo-cache
       domainname: dev
- #     ports:
- #       - "8085:80"
+      ports:
+        - "8085:80"
       networks:
             dev:
               aliases:
@@ -28,7 +28,7 @@ services:
             aliases:
                 - postgres
     depends_on:
-      - repo_cache.dev
+      - repo-cache.dev
   #  ambari-server.dev:
   #   build: 
   #     context: ../containers/ambari-server
