@@ -1,7 +1,7 @@
 version: '3'
 services:
   repo-cache.dev:
-      image: hdp/repo_cache
+      image: hdp/repo-cache
       hostname: repo-cache
       domainname: dev
       ports:
