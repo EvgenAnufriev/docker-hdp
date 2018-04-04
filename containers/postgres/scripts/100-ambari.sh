@@ -8,6 +8,10 @@ echo REPO_HOST_ADDRESS=$REPO_HOST_ADDRESS
 
 cd ~/
 #wget https://raw.githubusercontent.com/apache/ambari/branch-2.5/ambari-server/src/main/resources/Ambari-DDL-Postgres-CREATE.sql
+echo AMBARI_DDL_URL=$AMBARI_DDL_URL
+
+exit
+
 wget ${AMBARI_DDL_URL}
 #sed -i "s/\${ambariSchemaVersion}/2.5.2/g" Ambari-DDL-Postgres-CREATE.sql
 
