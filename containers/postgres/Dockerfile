@@ -7,3 +7,5 @@ ADD scripts/* /docker-entrypoint-initdb.d/
 RUN mkdir /home/postgres
 RUN chown postgres /pg_hba.conf /home/postgres
 RUN chown postgres /var/lib/postgresql/data
+ADD wait-for-it.sh /wait-for-it.sh
+RUN chmod +x /wait-for-it.sh
