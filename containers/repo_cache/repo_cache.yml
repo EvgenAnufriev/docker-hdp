@@ -1,0 +1,23 @@
+version: '3'
+services: 
+  repo_cache.dev:
+      build:
+        context: ./containers/repo_cache
+        args:
+          - OS_VER=${OS_VER}
+          - HDP_VER=${HDP_VER}
+          - AMBARI_VER=${AMBARI_VER}
+          - HDP_UTILS_VER=${HDP_UTILS_VER}
+          - AMBARI_STACK=${AMBARI_STACK}
+        dockerfile: Dockerfile
+      image: hdp/repo_cache
+#      networks:
+#        - dev
+      hostname: repo_cache
+      domainname: dev
+      ports:
+        - "8085:80"
+
+  #networks:
+  #dev:
+  #  driver: bridge
