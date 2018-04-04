@@ -26,8 +26,8 @@ services:
             aliases:
                 - postgres
     depends_on:
-      - "repo_cache.dev"
-      command: ["../env/wait-for-it.sh", "repo_cache.dev:80"]
+      - repo_cache.dev
+    command: ["../env/wait-for-it.sh", "repo_cache.dev:80"]
   #  ambari-server.dev:
   #   build: 
   #     context: ../containers/ambari-server
