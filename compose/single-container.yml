@@ -27,7 +27,6 @@ services:
                 - postgres
     depends_on:
       - repo_cache.dev
-    command: ["/wait-for-it.sh", "repo_cache.dev:80"]
   #  ambari-server.dev:
   #   build: 
   #     context: ../containers/ambari-server
