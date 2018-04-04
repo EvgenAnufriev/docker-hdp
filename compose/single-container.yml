@@ -16,9 +16,11 @@ services:
      context: ../containers/postgres
      args:
       - AMBARI_DDL_URL=${AMBARI_DDL_URL}
+      - REPO_HOST_ADDRESS=${REPO_HOST_ADDRESS}
     image: hdp/postgres
     environment:
      - AMBARI_DDL_URL=${AMBARI_DDL_URL}
+     - REPO_HOST_ADDRESS=${REPO_HOST_ADDRESS}
     hostname: postgres
     domainname: dev
     networks:
