@@ -5,4 +5,4 @@ CMD=$2
 
 source ./env/set_env.sh
 
-docker-compose -f $COMPOSEFILE $CMD
+docker-compose -f $COMPOSEFILE $CMD $3
