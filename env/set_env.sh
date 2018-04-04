@@ -39,7 +39,6 @@ echo
 echo    
 echo    
 
-wget 
 
 # docker-compose build-args
 #AMBARI_DDL_URL=https://raw.githubusercontent.com/apache/ambari/branch-2.5/ambari-server/src/main/resources/Ambari-DDL-Postgres-CREATE.sql
