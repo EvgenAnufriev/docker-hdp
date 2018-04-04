@@ -38,12 +38,12 @@ services:
     image: hdp/ambari-server
     hostname: ambari-server
     domainname: dev
-    ports:
-     - "8080:8080"
     networks:
         dev:
             aliases:
                 - ambari-server
+    ports:
+     - "8080:8080"
     depends_on:
       - repo-cache.dev
   # dn0.dev:
