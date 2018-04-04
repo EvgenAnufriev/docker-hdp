@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-./wait-for-it.sh ${REPO_HOST_ADDRESS}
+#./wait-for-it.sh ${REPO_HOST_ADDRESS}:80
 
 cd ~/
 
