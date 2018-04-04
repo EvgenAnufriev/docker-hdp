@@ -9,6 +9,7 @@ services:
           - AMBARI_VER=${AMBARI_VER}
           - HDP_UTILS_VER=${HDP_UTILS_VER}
           - AMBARI_STACK=${AMBARI_STACK}
+          - REPO_HOST_ADDRESS=${REPO_HOST_ADDRESS}
         dockerfile: Dockerfile
       image: hdp/repo_cache
 #      networks:

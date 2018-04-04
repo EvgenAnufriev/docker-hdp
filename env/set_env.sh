@@ -9,9 +9,14 @@ export HDP_STACK=${HDP_VER:0:3}
 export AMBARI_STACK=${AMBARI_VER:0:3}
 
 export AMBARI_HOST=localhost:8080
+export REPO_HOST_ADDRESS=repo_cache.dev
 export BASE_URL=http://repo_cache.dev/HDP/centos$OS_VER/2.x/updates/$HDP_VER
 
 export AMBARI_DDL_URL=http://repo_cache.dev/ambari/${OS_VER}/sql/Ambari-DDL-Postgres-CREATE.sql
+
+export AMBARI_REPO_URL=http://repo_cache.dev/ambari.repo
+export HDP_REPO_URL=http://repo_cache.dev/hdp.repo
+
 
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
 echo 
@@ -26,6 +31,8 @@ echo AMBARI_STACK=$AMBARI_STACK
 echo AMBARI_HOST=$AMBARI_HOST
 echo BASE_URL=$BASE_URL
 echo AMBARI_DDL_URL=$AMBARI_DDL_URL    
+echo AMBARI_REPO_URL=$AMBARI_REPO_URL
+echo HDP_REPO_URL=$HDP_REPO_URL
 echo    
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
 echo    
