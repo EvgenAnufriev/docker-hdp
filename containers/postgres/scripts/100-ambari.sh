@@ -10,7 +10,9 @@ cd ~/
 #wget https://raw.githubusercontent.com/apache/ambari/branch-2.5/ambari-server/src/main/resources/Ambari-DDL-Postgres-CREATE.sql
 echo AMBARI_DDL_URL=$AMBARI_DDL_URL
 
-# wget ${AMBARI_DDL_URL}
+ wget -nv ${AMBARI_DDL_URL} -O Ambari-DDL-Postgres-CREATE.sql
+
+ cat Ambari-DDL-Postgres-CREATE.sql
 # #sed -i "s/\${ambariSchemaVersion}/2.5.2/g" Ambari-DDL-Postgres-CREATE.sql
 
 # psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" <<-EOSQL
