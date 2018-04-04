@@ -4,7 +4,7 @@ set -e
 
 echo !!!!!!!!!!!;
 echo REPO_HOST_ADDRESS=$REPO_HOST_ADDRESS
-./wait-for-it.sh ${REPO_HOST_ADDRESS}:8085
+#./wait-for-it.sh ${REPO_HOST_ADDRESS}:8085
 
 cd ~/
 #wget https://raw.githubusercontent.com/apache/ambari/branch-2.5/ambari-server/src/main/resources/Ambari-DDL-Postgres-CREATE.sql
