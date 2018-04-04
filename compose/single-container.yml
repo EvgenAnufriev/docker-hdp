@@ -4,8 +4,8 @@ services:
       image: hdp/repo-cache
       hostname: repo-cache
       domainname: dev
-      ports:
-        - "8085:80"
+#      ports:
+#        - "8085:80"
       networks:
             dev:
               aliases:

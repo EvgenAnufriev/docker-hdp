@@ -1,6 +1,6 @@
 FROM postgres
 RUN apt-get update -y && \
- apt-get install -y wget
+ apt-get install -y wget curl
 ARG AMBARI_DDL_URL
 ADD pg_hba.conf /pg_hba.conf
 ADD scripts/* /docker-entrypoint-initdb.d/
