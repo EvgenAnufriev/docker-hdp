@@ -1,15 +1,15 @@
 version: '3'
 services:
-  repo_cache.dev:
+  repo-cache.dev:
       image: hdp/repo_cache
-      hostname: repo_cache
+      hostname: repo-cache
       domainname: dev
  #     ports:
  #       - "8085:80"
       networks:
             dev:
               aliases:
-                  - repo_cache
+                  - repo-cache
   
   postres.dev:
     build:

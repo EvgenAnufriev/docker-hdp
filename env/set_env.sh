@@ -9,13 +9,13 @@ export HDP_STACK=${HDP_VER:0:3}
 export AMBARI_STACK=${AMBARI_VER:0:3}
 
 export AMBARI_HOST=localhost:8080
-export REPO_HOST_ADDRESS=repo_cache.dev
-export BASE_URL=http://repo_cache.dev/HDP/centos$OS_VER/2.x/updates/$HDP_VER
+export REPO_HOST_ADDRESS=repo-cache.dev
+export BASE_URL=http://${REPO_HOST_ADDRESS}/HDP/centos$OS_VER/2.x/updates/$HDP_VER
 
-export AMBARI_DDL_URL=http://repo_cache.dev/ambari/${OS_VER}/sql/Ambari-DDL-Postgres-CREATE.sql
+export AMBARI_DDL_URL=http://${REPO_HOST_ADDRESS}/ambari/${OS_VER}/sql/Ambari-DDL-Postgres-CREATE.sql
 
-export AMBARI_REPO_URL=http://repo_cache.dev/ambari.repo
-export HDP_REPO_URL=http://repo_cache.dev/hdp.repo
+export AMBARI_REPO_URL=http://${REPO_HOST_ADDRESS}/ambari.repo
+export HDP_REPO_URL=http://${REPO_HOST_ADDRESS}/hdp.repo
 
 
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
@@ -39,6 +39,7 @@ echo
 echo    
 echo    
 
+wget 
 
 # docker-compose build-args
 #AMBARI_DDL_URL=https://raw.githubusercontent.com/apache/ambari/branch-2.5/ambari-server/src/main/resources/Ambari-DDL-Postgres-CREATE.sql
