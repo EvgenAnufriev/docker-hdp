@@ -19,8 +19,8 @@ export AMBARI_DDL_URL=http://${REPO_HOST_ADDRESS_LOCAL}/ambari/${OS_VER}/sql/Amb
 export AMBARI_REPO_URL=http://${REPO_HOST_ADDRESS}/ambari.repo
 export HDP_REPO_URL=http://${REPO_HOST_ADDRESS}/hdp.repo
 
-export AMBARI_REPO_URL_BUILD=http://${"$(ifconfig | grep -A 1 'eth0' | tail -1 | cut -d ':' -f 2 | cut -d ' ' -f 1)"}/ambari.repo
-export HDP_REPO_URL_BUILD=http://${"$(ifconfig | grep -A 1 'eth0' | tail -1 | cut -d ':' -f 2 | cut -d ' ' -f 1)"}/hdp.repo
+export AMBARI_REPO_URL_BUILD=http://${$(ifconfig | grep -A 1 'eth0' | tail -1 | cut -d ':' -f 2 | cut -d ' ' -f 1) }/ambari.repo
+export HDP_REPO_URL_BUILD=http://${ $(ifconfig | grep -A 1 'eth0' | tail -1 | cut -d ':' -f 2 | cut -d ' ' -f 1) }/hdp.repo
 
 
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
