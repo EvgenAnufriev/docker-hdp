@@ -32,11 +32,11 @@ services:
     build: 
       context: ../containers/ambari-server
       args:
-        - AMBARI_REPO_URL_BUILD =${AMBARI_REPO_URL_BUILD}
+        - AMBARI_REPO_URL_BUILD=${AMBARI_REPO_URL_BUILD}
         - HDP_REPO_URL_BUILD=${HDP_REPO_URL_BUILD}
     image: hdp/ambari-server
     environment:
-        - AMBARI_REPO_URL_BUILD =${AMBARI_REPO_URL_BUILD}
+        - AMBARI_REPO_URL_BUILD=${AMBARI_REPO_URL_BUILD}
         - HDP_REPO_URL_BUILD=${HDP_REPO_URL_BUILD}
     hostname: ambari-server
     domainname: dev
