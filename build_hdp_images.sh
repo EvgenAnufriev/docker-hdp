@@ -81,11 +81,12 @@ echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
 echo Start building new HDP cluster images
 docker-compose -f $HDP_SINGLE_NODE_COMPOSE_FILE build --no-cache
+docker-compose -f $HDP_SINGLE_NODE_COMPOSE_FILE up --detach
 echo Build new HDP cluster images
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
 
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
 echo  Shutting down REPO-CACHE container
-docker-compose -f $HDP_REPO_NODE_COMPOSE_FILE down
+#docker-compose -f $HDP_REPO_NODE_COMPOSE_FILE down
 echo  Shutting down REPO-CACHE container competed
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
