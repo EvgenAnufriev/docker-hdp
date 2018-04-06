@@ -4,8 +4,8 @@ ARG HDP_REPO_URL_BUILD
 
 RUN yum install -y wget sudo net-tools
 
-RUN wget -nv ${AMBARI_REPO_URL_BUILD} -O /etc/yum.repos.d/ambari.repo
-RUN wget -nv ${HDP_REPO_URL_BUILD} -O /etc/yum.repos.d/hdp.repo
+RUN wget -nv $AMBARI_REPO_URL_BUILD -O /etc/yum.repos.d/ambari.repo
+RUN wget -nv $HDP_REPO_URL_BUILD -O /etc/yum.repos.d/hdp.repo
 
 RUN yum install -y sudo wget openssl-devel postgresql-jdbc mysql-connector-java unzip
 
