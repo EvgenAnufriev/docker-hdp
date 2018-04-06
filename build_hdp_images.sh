@@ -1,7 +1,8 @@
 #!/bin/bash
 
 HDP_REPO_BUILD=0
-HDP_REPO_BUILD_WITH=no-cache
+HDP_REPO_BUILD_WITH=
+#no-cache
 #use-existing
 
 HDP_SINGLE_NODE_COMPOSE_FILE=compose/single-container.yml
