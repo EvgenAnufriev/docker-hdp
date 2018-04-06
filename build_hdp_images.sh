@@ -3,8 +3,8 @@
 HDP_REPO_BUILD=0
 HDP_REPO_BUILD_WITH=existed
 
-HDP_SINGLE_NODE_COMPOSE_FILE=containers/repo-cache/repo-cache.yml
-HDP_REPO_NODE_COMPOSE_FILE=containers/repo-cache/repo-cache.yml
+HDP_SINGLE_NODE_COMPOSE_FILE=compose/single-container.yml
+HDP_REPO_NODE_COMPOSE_FILE=compose/repo-cache.yml
 
 
 usage() {
@@ -12,8 +12,8 @@ usage() {
   cat << USAGE >&2
 Usage:
   $cmdname [--build-hdp-repo]
-  --build-hdp-repo=\{cache, no-cache, existed\}                    Before building images for HDP cluster script builds REPO-CACHE image.
-  --help                              Print this help 
+  --build-hdp-repo=\{cache, no-cache, existed\}     Before building images for HDP cluster script builds REPO-CACHE image.
+  --help                                            Print this help 
 USAGE
   exit "$exitcode"
 }
