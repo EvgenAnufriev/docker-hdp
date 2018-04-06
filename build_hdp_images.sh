@@ -1,7 +1,7 @@
 #!/bin/bash
 
 HDP_REPO_BUILD=0
-HDP_REPO_BUILD_WITH=use-existing
+HDP_REPO_BUILD_WITH=no-cache
 #no-cache
 #use-existing
 
@@ -75,7 +75,7 @@ fi
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
 echo Starting REPO-CACHE container
 
-docker-compose -f $HDP_REPO_NODE_COMPOSE_FILE up --detach
+docker-compose -f $HDP_REPO_NODE_COMPOSE_FILE up --detach --remove-orphans
 
 echo Started REPO-CACHE container
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
@@ -83,7 +83,7 @@ echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
 echo Start building new HDP cluster images
 docker-compose -f $HDP_SINGLE_NODE_COMPOSE_FILE build --no-cache
-docker-compose -f $HDP_SINGLE_NODE_COMPOSE_FILE up --detach
+docker-compose -f $HDP_SINGLE_NODE_COMPOSE_FILE up --detach --remove-orphans
 echo Build new HDP cluster images
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
 
