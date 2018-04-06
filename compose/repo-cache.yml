@@ -12,13 +12,15 @@ services:
           - REPO_HOST_ADDRESS=${REPO_HOST_ADDRESS}
         dockerfile: Dockerfile
       image: hdp/repo-cache
-#      networks:
-#        - dev
       hostname: repo-cache
       domainname: dev
+      networks:
+            dev:
+              aliases:
+                  - repo-cache
       ports:
         - "8085:80"
 
-  #networks:
-  #dev:
-  #  driver: bridge
+networks:
+  dev:
+    driver: bridge
