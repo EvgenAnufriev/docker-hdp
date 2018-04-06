@@ -40,8 +40,8 @@ echo AMBARI_REPO_URL=$AMBARI_REPO_URL
 echo HDP_REPO_URL=$HDP_REPO_URL
 echo REPO_HOST_ADDRESS_LOCAL=$REPO_HOST_ADDRESS_LOCAL
 echo AMBARI_REPO_URL_BUILD=$AMBARI_REPO_URL_BUILD
-echo
 echo HDP_REPO_URL_BUILD=$HDP_REPO_URL_BUILD    
+echo
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
 echo    
 
