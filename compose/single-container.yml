@@ -35,6 +35,7 @@ services:
       context: ../containers/ambari-server
       args:
         - AMBARI_REPO_URL=${AMBARI_REPO_URL}
+        - HDP_REPO_URL=${HDP_REPO_URL}
     image: hdp/ambari-server
     hostname: ambari-server
     domainname: dev

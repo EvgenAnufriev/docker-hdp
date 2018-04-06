@@ -5,9 +5,9 @@ set -e
 
 cd ~/
 
-wget -nv ${AMBARI_DDL_URL} -O Ambari-DDL-Postgres-CREATE.sql
+cp /Ambari-DDL-Postgres-CREATE.sql ~/
 
-cat Ambari-DDL-Postgres-CREATE.sql
+#wget -nv ${AMBARI_DDL_URL} -O Ambari-DDL-Postgres-CREATE.sql
 
 #sed -i "s/\${ambariSchemaVersion}/2.5.2/g" Ambari-DDL-Postgres-CREATE.sql
 
