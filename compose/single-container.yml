@@ -11,22 +11,22 @@ services:
               aliases:
                   - repo-cache
   
-  # postres.dev:
-  #   build:
-  #    context: ../containers/postgres
-  #    args:
-  #     - AMBARI_DDL_URL=${AMBARI_DDL_URL}
-  #   image: hdp/postgres
-  #   environment:
-  #    - AMBARI_DDL_URL=${AMBARI_DDL_URL}
-  #   hostname: postgres
-  #   domainname: dev
-  #   networks:
-  #       dev:
-  #           aliases:
-  #               - postgres
-  #   depends_on:
-  #     - repo-cache.dev
+  postres.dev:
+    build:
+     context: ../containers/postgres
+     args:
+      - AMBARI_DDL_URL=${AMBARI_DDL_URL}
+    image: hdp/postgres
+    environment:
+     - AMBARI_DDL_URL=${AMBARI_DDL_URL}
+    hostname: postgres
+    domainname: dev
+    networks:
+        dev:
+            aliases:
+                - postgres
+    depends_on:
+      - repo-cache.dev
 
   ambari-server.dev:
     build: 
