@@ -1,6 +1,6 @@
 #!/bin/bash
-sed -i "s/hostname=localhost/hostname=ambari-server.dev/" /etc/ambari-agent/conf/ambari-agent.ini
-ambari-agent start
+##sed -i "s/hostname=localhost/hostname=ambari-server.dev/" /etc/ambari-agent/conf/ambari-agent.ini
+##ambari-agent start
 
 while true; do
   sleep 3
