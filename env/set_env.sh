@@ -10,19 +10,22 @@ export AMBARI_STACK=${AMBARI_VER:0:3}
 
 export AMBARI_HOST=localhost:8080
 export REPO_HOST_ADDRESS=repo-cache.dev
-export REPO_HOST_ADDRESS_LOCAL=$REPO_HOST_ADDRESS:8085
-export BASE_URL=http://${REPO_HOST_ADDRESS}/HDP/centos$OS_VER/2.x/updates/$HDP_VER
 
-#export AMBARI_DDL_URL=https://raw.githubusercontent.com/apache/ambari/branch-${AMBARI_STACK}/ambari-server/src/main/resources/Ambari-DDL-Postgres-CREATE.sql
-export AMBARI_DDL_URL=http://${REPO_HOST_ADDRESS_LOCAL}/ambari/${OS_VER}/sql/Ambari-DDL-Postgres-CREATE.sql
+
+export BASE_URL=http://${REPO_HOST_ADDRESS}/HDP/centos$OS_VER/2.x/updates/$HDP_VER
 
 export AMBARI_REPO_URL=http://${REPO_HOST_ADDRESS}/ambari.repo
 export HDP_REPO_URL=http://${REPO_HOST_ADDRESS}/hdp.repo
 
 MyIP="$(ip a show dev docker0 | grep -w inet | awk -F' ' {'print $2'} | awk -F'/' {'print $1'})"
+export REPO_HOST_ADDRESS_LOCAL=${MyIP}:8085
 
-export AMBARI_REPO_URL_BUILD=http://${MyIP}/ambari.repo
-export HDP_REPO_URL_BUILD=http://${MyIP}/hdp.repo
+#export AMBARI_DDL_URL=https://raw.githubusercontent.com/apache/ambari/branch-${AMBARI_STACK}/ambari-server/src/main/resources/Ambari-DDL-Postgres-CREATE.sql
+export AMBARI_DDL_URL=http://${REPO_HOST_ADDRESS_LOCAL}/ambari/${OS_VER}/sql/Ambari-DDL-Postgres-CREATE.sql
+
+
+export AMBARI_REPO_URL_BUILD=http://${REPO_HOST_ADDRESS_LOCAL}/ambari.repo
+export HDP_REPO_URL_BUILD=http://${REPO_HOST_ADDRESS_LOCAL}/hdp.repo
 
 
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
