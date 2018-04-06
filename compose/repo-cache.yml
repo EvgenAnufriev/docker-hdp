@@ -2,7 +2,7 @@ version: '3'
 services: 
   repo-cache.dev:
       build:
-        context: ./
+        context: ../containers/repo-cache
         args:
           - OS_VER=${OS_VER}
           - HDP_VER=${HDP_VER}
