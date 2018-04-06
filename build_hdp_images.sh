@@ -1,7 +1,7 @@
 #!/bin/bash
 
 HDP_REPO_BUILD=0
-HDP_REPO_BUILD_WITH=
+HDP_REPO_BUILD_WITH=use-existing
 #no-cache
 #use-existing
 
