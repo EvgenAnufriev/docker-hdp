@@ -16,5 +16,5 @@ echo OS_VER=$OS_VER
 #RUN yum install -y ambari-server postgresql-jdbc
 #RUN ambari-server setup --database=postgres --databasehost=postgres.dev --databaseport=5432 --databasename=ambari --postgresschema=ambari  --databaseusername=ambari --databasepassword=dev --silent
 #RUN ambari-server setup --jdbc-db postgres --jdbc-driver=/usr/share/java/postgresql-jdbc.jar
-#ADD scripts/start.sh /start.sh
-#CMD /start.sh
+ADD scripts/start.sh /start.sh
+CMD /start.sh
