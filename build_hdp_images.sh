@@ -47,12 +47,18 @@ if [ $HDP_REPO_BUILD -eq 1 ]; then
    
    case "$HDP_REPO_BUILD_WITH" in
    	no-cache)
-   	    echo Build new REPO-CACHE image without using cache	 	
+   	    echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
+   	    echo Start building new REPO-CACHE image without using cache	 	
 	    docker-compose -f $HDP_REPO_NODE_COMPOSE_FILE build --no-cache
+   	    echo Building REPO-CACHE image completed	 	
+   	    echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
    		;;
    	cache)
-   	    echo Build new REPO-CACHE image using cache	 	
+   	    echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
+   	    echo Start building new REPO-CACHE image using cache	 	
 	    docker-compose -f $HDP_REPO_NODE_COMPOSE_FILE build
+   	    echo Building REPO-CACHE image completed	 	
+   	    echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
    		;;
    	existed)
    		echo Use existing REPO-CACHE image	 	
@@ -64,12 +70,22 @@ if [ $HDP_REPO_BUILD -eq 1 ]; then
    esac
 fi	
  
+echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
 echo Starting REPO-CACHE container
 
 docker-compose -f $HDP_REPO_NODE_COMPOSE_FILE up --detach
 
-# echo Build 
-# docker-compose -f $HDP_SINGLE_NODE_COMPOSE_FILE build --no-cache
+echo Started REPO-CACHE container
+echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
 
-# echo  Shutting down REPO-CACHE container
-# docker-compose -f $HDP_REPO_NODE_COMPOSE_FILE down
+echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
+echo Start building new HDP cluster images
+docker-compose -f $HDP_SINGLE_NODE_COMPOSE_FILE build --no-cache
+echo Build new HDP cluster images
+echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
+
+echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
+echo  Shutting down REPO-CACHE container
+docker-compose -f $HDP_REPO_NODE_COMPOSE_FILE down
+echo  Shutting down REPO-CACHE container competed
+echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
