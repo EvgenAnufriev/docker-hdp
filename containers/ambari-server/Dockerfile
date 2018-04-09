@@ -5,7 +5,6 @@ ARG HDP_REPO_URL_BUILD
 RUN yum install -y wget sudo net-tools
 
 RUN echo AMBARI_REPO_URL_BUILD=${AMBARI_REPO_URL_BUILD} &&\
-echo OS_VER=$OS_VER
 
 RUN wget -nv ${AMBARI_REPO_URL_BUILD} -O /etc/yum.repos.d/ambari.repo
 RUN wget -nv ${HDP_REPO_URL_BUILD} -O /etc/yum.repos.d/hdp.repo
