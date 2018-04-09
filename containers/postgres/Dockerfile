@@ -12,4 +12,4 @@ ADD wait-for-it.sh /wait-for-it.sh
 RUN chmod +x /wait-for-it.sh
 RUN wget -nv ${AMBARI_DDL_URL} -O /Ambari-DDL-Postgres-CREATE.sql 
 WORKDIR /
-RUN sed -i "s/\${ambariSchemaVersion}/${AMBARI_VER:0:5}/g" /Ambari-DDL-Postgres-CREATE.sql
+RUN sed -i "s/\${ambariSchemaVersion}/${AMBARI_VER}/g" /Ambari-DDL-Postgres-CREATE.sql
