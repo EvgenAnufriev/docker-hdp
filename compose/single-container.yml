@@ -16,9 +16,11 @@ services:
      context: ../containers/postgres
      args:
       - AMBARI_DDL_URL=${AMBARI_DDL_URL}
+      - AMBARI_VER=${AMBARI_VER}
     image: hdp/postgres
     environment:
      - AMBARI_DDL_URL=${AMBARI_DDL_URL}
+      - AMBARI_VER=${AMBARI_VER}
     hostname: postgres
     domainname: dev
     networks:
