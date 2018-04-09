@@ -11,7 +11,7 @@ services:
               aliases:
                   - repo-cache
   
-  postres.dev:
+  postgres.dev:
     build:
      context: ../containers/postgres
      args:
