@@ -46,7 +46,7 @@ echo priority=1 >> ambari.repo
 RUN echo \#VERSION_NUMBER=$HDP_VER >> hdp.repo  && \
 echo [HDP-$HDP_VER] >> hdp.repo  && \
 echo name=HDP Version - HDP-$HDP_VER >> hdp.repo  && \
-echo baseurl=http://$REPO_HOST_ADDRESS_LOCAL/hdp/${OS_VER}/HDP-${$HDP_VER} >> hdp.repo  && \
+echo baseurl=http://$REPO_HOST_ADDRESS_LOCAL/hdp/${OS_VER}/HDP-${HDP_VER} >> hdp.repo  && \
 echo gpgcheck=0 >> hdp.repo  && \
 echo enabled=1 >> hdp.repo  && \
 echo priority=1 >> hdp.repo  && \
@@ -54,7 +54,7 @@ echo   >> hdp.repo  && \
 echo   >> hdp.repo  && \
 echo [HDP-UTILS-$HDP_UTILS_VER] >> hdp.repo  && \
 echo name=HDP-UTILS Version - HDP-UTILS-$HDP_UTILS_VER >> hdp.repo  && \
-echo baseurl=http://$REPO_HOST_ADDRESS_LOCAL/hdp/${OS_VER}/HDP-UTILS-${$HDP_UTILS_VER} >> hdp.repo  && \
+echo baseurl=http://$REPO_HOST_ADDRESS_LOCAL/hdp/${OS_VER}/HDP-UTILS-${HDP_UTILS_VER} >> hdp.repo  && \
 echo gpgcheck=0 >> hdp.repo  && \
 echo enabled=1 >> hdp.repo  && \
 echo priority=1 >> hdp.repo
