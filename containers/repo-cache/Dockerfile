@@ -20,15 +20,15 @@ mkdir -p /var/www/html/ambari/${OS_VER}/sql
 #ENV ORIG_HDP_REPO_URL=http://public-repo-1.hortonworks.com/HDP/centos${OS_VER}/2.x/updates/${HDP_VER}/hdp.repo
 
 #RUN wget -nv ${ORIG_AMBARI_REPO_URL} -O /etc/yum.repos.d/ambari.repo && \
- wget -nv ${ORIG_HDP_REPO_URL} -O /etc/yum.repos.d/hdp.repo && \
- wget -nv https://raw.githubusercontent.com/apache/ambari/branch-${AMBARI_STACK}/ambari-server/src/main/resources/Ambari-DDL-Postgres-CREATE.sql -O /var/www/html/ambari/${OS_VER}/sql/Ambari-DDL-Postgres-CREATE.sql
+# wget -nv ${ORIG_HDP_REPO_URL} -O /etc/yum.repos.d/hdp.repo && \
+# wget -nv https://raw.githubusercontent.com/apache/ambari/branch-${AMBARI_STACK}/ambari-server/src/main/resources/Ambari-DDL-Postgres-CREATE.sql -O /var/www/html/ambari/${OS_VER}/sql/Ambari-DDL-Postgres-CREATE.sql
 
 #RUN reposync -p /var/www/html/ambari/${OS_VER} -r ambari-${AMBARI_VER} && \
-reposync -p /var/www/html/hdp/${OS_VER} -r HDP-${HDP_VER} && \
-reposync -p /var/www/html/hdp/${OS_VER} -r HDP-UTILS-${HDP_UTILS_VER} && \
-createrepo /var/www/html/ambari/${OS_VER}/ambari-${AMBARI_VER} && \
-createrepo /var/www/html/hdp/${OS_VER}/HDP-${HDP_VER} && \
-createrepo /var/www/html/hdp/${OS_VER}/HDP-UTILS-${HDP_UTILS_VER}
+#reposync -p /var/www/html/hdp/${OS_VER} -r HDP-${HDP_VER} && \
+#reposync -p /var/www/html/hdp/${OS_VER} -r HDP-UTILS-${HDP_UTILS_VER} && \
+#createrepo /var/www/html/ambari/${OS_VER}/ambari-${AMBARI_VER} && \
+#createrepo /var/www/html/hdp/${OS_VER}/HDP-${HDP_VER} && \
+#createrepo /var/www/html/hdp/${OS_VER}/HDP-UTILS-${HDP_UTILS_VER}
 
 WORKDIR /var/www/html/
 
