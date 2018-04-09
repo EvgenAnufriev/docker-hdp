@@ -36,7 +36,7 @@ WORKDIR /var/www/html/
 RUN echo \#VERSION_NUMBER=${AMBARI_VER} >> ambari.repo && \
 echo [ambari-${AMBARI_VER}] >> ambari.repo && \
 echo name=ambari Version - ambari-${AMBARI_VER} >> ambari.repo && \
-echo baseurl=http://$REPO_HOST_ADDRESS_LOCAL/ambari/centos${OS_VER}/2.x/updates/${AMBARI_VER} >> ambari.repo && \
+echo baseurl=http://$REPO_HOST_ADDRESS_LOCAL/ambari/${OS_VER}/ambari-${AMBARI_VER} >> ambari.repo && \
 echo gpgcheck=0 >> ambari.repo && \
 echo enabled=1 >> ambari.repo && \ 
 echo priority=1 >> ambari.repo
