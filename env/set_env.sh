@@ -24,8 +24,11 @@ export REPO_HOST_ADDRESS_LOCAL=${MyIP}:8085
 export AMBARI_DDL_URL=http://${REPO_HOST_ADDRESS_LOCAL}/ambari/${OS_VER}/sql/Ambari-DDL-Postgres-CREATE.sql
 
 
-export AMBARI_REPO_URL_BUILD=http://${REPO_HOST_ADDRESS_LOCAL}/ambari.repo
-export HDP_REPO_URL_BUILD=http://${REPO_HOST_ADDRESS_LOCAL}/hdp.repo
+#export AMBARI_REPO_URL_BUILD=http://${REPO_HOST_ADDRESS_LOCAL}/ambari.repo
+#export HDP_REPO_URL_BUILD=http://${REPO_HOST_ADDRESS_LOCAL}/hdp.repo
+
+export AMBARI_REPO_URL_BUILD=http://${REPO_HOST_ADDRESS}/ambari.repo
+export HDP_REPO_URL_BUILD=http://${REPO_HOST_ADDRESS}/hdp.repo
 
 
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#

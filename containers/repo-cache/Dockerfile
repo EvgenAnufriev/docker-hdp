@@ -58,3 +58,12 @@ echo baseurl=http://$REPO_HOST_ADDRESS_LOCAL/hdp/${OS_VER}/HDP-UTILS-${HDP_UTILS
 echo gpgcheck=0 >> hdp.repo  && \
 echo enabled=1 >> hdp.repo  && \
 echo priority=1 >> hdp.repo
+
+# create custom smartsense.repo
+#RUN echo \#VERSION_NUMBER=${AMBARI_VER} >> smartsense.repo && \
+#echo [ambari-${AMBARI_VER}] >> smartsense.repo && \
+#echo name=smartsense >> smartsense.repo && \
+#echo baseurl=http://$REPO_HOST_ADDRESS_LOCAL/ambari/${OS_VER}/ambari-${AMBARI_VER}/smartsense >> smartsense.repo && \
+#echo gpgcheck=0 >> smartsense.repo && \
+#echo enabled=1 >> smartsense.repo && \ 
+#echo priority=1 >> smartsense.repo

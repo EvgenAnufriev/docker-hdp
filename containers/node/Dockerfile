@@ -29,6 +29,7 @@ RUN yum install -y ambari-agent
 #RUN yum install -y druid*
 #RUN yum install -y superset*
 
+RUN rm -f /etc/yum.repos.d/hdp* 
 RUN yum install -y lzo snappy-devel rpcbind
 ADD scripts/start.sh /start.sh
 CMD /start.sh
