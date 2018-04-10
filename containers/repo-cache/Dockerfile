@@ -5,7 +5,8 @@ ARG AMBARI_VER
 ARG HDP_VER
 ARG HDP_UTILS_VER
 ARG AMBARI_STACK
-ARG REPO_HOST_ADDRESS_LOCAL
+ARG REPO_HOST_ADDRESS_GLOBAL
+ARG REPO_HOST_ADDRESS
 
 RUN echo AMBARI_STACK=${AMBARI_STACK} && \
 echo HDP_VER=${HDP_VER}
@@ -32,11 +33,44 @@ createrepo /var/www/html/hdp/${OS_VER}/HDP-UTILS-${HDP_UTILS_VER}
 
 WORKDIR /var/www/html/
 
+# repo files required while building images
+
+# create custom ambari.repo
+RUN echo \#VERSION_NUMBER=${AMBARI_VER} >> ambari_build.repo && \
+echo [ambari-${AMBARI_VER}] >> ambari_build.repo && \
+echo name=ambari Version - ambari-${AMBARI_VER} >> ambari_build.repo && \
+echo baseurl=http://$REPO_HOST_ADDRESS_GLOBAL/ambari/${OS_VER}/ambari-${AMBARI_VER} >> ambari_build.repo && \
+echo gpgcheck=0 >> ambari_build.repo && \
+echo enabled=1 >> ambari_build.repo && \ 
+echo priority=1 >> ambari_build.repo
+
+
+# create custom hdp_build.repo
+RUN echo \#VERSION_NUMBER=$HDP_VER >> hdp_build.repo  && \
+echo [HDP-$HDP_VER] >> hdp_build.repo  && \
+echo name=HDP Version - HDP-$HDP_VER >> hdp_build.repo  && \
+echo baseurl=http://$REPO_HOST_ADDRESS_GLOBAL/hdp/${OS_VER}/HDP-${HDP_VER} >> hdp_build.repo  && \
+echo gpgcheck=0 >> hdp_build.repo  && \
+echo enabled=1 >> hdp_build.repo  && \
+echo priority=1 >> hdp_build.repo  && \
+echo   >> hdp_build.repo  && \
+echo   >> hdp_build.repo  && \
+echo [HDP-UTILS-$HDP_UTILS_VER] >> hdp_build.repo  && \
+echo name=HDP-UTILS Version - HDP-UTILS-$HDP_UTILS_VER >> hdp_build.repo  && \
+echo baseurl=http://$REPO_HOST_ADDRESS_GLOBAL/hdp/${OS_VER}/HDP-UTILS-${HDP_UTILS_VER} >> hdp_build.repo  && \
+echo gpgcheck=0 >> hdp_build.repo  && \
+echo enabled=1 >> hdp_build.repo  && \
+echo priority=1 >> hdp_build.repo
+
+
+
+# repo files required while running containers
+
 # create custom ambari.repo
 RUN echo \#VERSION_NUMBER=${AMBARI_VER} >> ambari.repo && \
 echo [ambari-${AMBARI_VER}] >> ambari.repo && \
 echo name=ambari Version - ambari-${AMBARI_VER} >> ambari.repo && \
-echo baseurl=http://$REPO_HOST_ADDRESS_LOCAL/ambari/${OS_VER}/ambari-${AMBARI_VER} >> ambari.repo && \
+echo baseurl=http://$REPO_HOST_ADDRESS/ambari/${OS_VER}/ambari-${AMBARI_VER} >> ambari.repo && \
 echo gpgcheck=0 >> ambari.repo && \
 echo enabled=1 >> ambari.repo && \ 
 echo priority=1 >> ambari.repo
@@ -46,7 +80,7 @@ echo priority=1 >> ambari.repo
 RUN echo \#VERSION_NUMBER=$HDP_VER >> hdp.repo  && \
 echo [HDP-$HDP_VER] >> hdp.repo  && \
 echo name=HDP Version - HDP-$HDP_VER >> hdp.repo  && \
-echo baseurl=http://$REPO_HOST_ADDRESS_LOCAL/hdp/${OS_VER}/HDP-${HDP_VER} >> hdp.repo  && \
+echo baseurl=http://$REPO_HOST_ADDRESS/hdp/${OS_VER}/HDP-${HDP_VER} >> hdp.repo  && \
 echo gpgcheck=0 >> hdp.repo  && \
 echo enabled=1 >> hdp.repo  && \
 echo priority=1 >> hdp.repo  && \
@@ -54,18 +88,11 @@ echo   >> hdp.repo  && \
 echo   >> hdp.repo  && \
 echo [HDP-UTILS-$HDP_UTILS_VER] >> hdp.repo  && \
 echo name=HDP-UTILS Version - HDP-UTILS-$HDP_UTILS_VER >> hdp.repo  && \
-echo baseurl=http://$REPO_HOST_ADDRESS_LOCAL/hdp/${OS_VER}/HDP-UTILS-${HDP_UTILS_VER} >> hdp.repo  && \
+echo baseurl=http://$REPO_HOST_ADDRESS/hdp/${OS_VER}/HDP-UTILS-${HDP_UTILS_VER} >> hdp.repo  && \
 echo gpgcheck=0 >> hdp.repo  && \
 echo enabled=1 >> hdp.repo  && \
 echo priority=1 >> hdp.repo
 
-# create custom smartsense.repo
-#RUN echo \#VERSION_NUMBER=${AMBARI_VER} >> smartsense.repo && \
-#echo [ambari-${AMBARI_VER}] >> smartsense.repo && \
-#echo name=smartsense >> smartsense.repo && \
-#echo baseurl=http://$REPO_HOST_ADDRESS_LOCAL/ambari/${OS_VER}/ambari-${AMBARI_VER}/smartsense >> smartsense.repo && \
-#echo gpgcheck=0 >> smartsense.repo && \
-#echo enabled=1 >> smartsense.repo && \ 
-#echo priority=1 >> smartsense.repo
+
 
 EXPOSE 80

@@ -8,23 +8,26 @@ export HDP_UTILS_VER=1.1.0.22
 export HDP_STACK=${HDP_VER:0:3}
 export AMBARI_STACK=${AMBARI_VER:0:3}
 
-export AMBARI_HOST=localhost:8080
+#export AMBARI_HOST=localhost:8080
+
+
+#export BASE_URL=http://${REPO_HOST_ADDRESS}/HDP/centos$OS_VER/2.x/updates/$HDP_VER
+
+# Variables used while containers run
 export REPO_HOST_ADDRESS=repo-cache.dev
-
-
-export BASE_URL=http://${REPO_HOST_ADDRESS}/HDP/centos$OS_VER/2.x/updates/$HDP_VER
-
 export AMBARI_REPO_URL=http://${REPO_HOST_ADDRESS}/ambari.repo
 export HDP_REPO_URL=http://${REPO_HOST_ADDRESS}/hdp.repo
 
-#MyIP="$(ip a show dev docker0 | grep -w inet | awk -F' ' {'print $2'} | awk -F'/' {'print $1'})"
-#export REPO_HOST_ADDRESS_LOCAL=${MyIP}:8085
-export REPO_HOST_ADDRESS_LOCAL=${REPO_HOST_ADDRESS}:80
 
+#Varibale used while building images
+MyIP="$(ip a show dev docker0 | grep -w inet | awk -F' ' {'print $2'} | awk -F'/' {'print $1'})"
+export REPO_HOST_ADDRESS_GLOBAL=${MyIP}:8085
 
-export AMBARI_REPO_URL_BUILD=http://${REPO_HOST_ADDRESS_LOCAL}/ambari.repo
-export HDP_REPO_URL_BUILD=http://${REPO_HOST_ADDRESS_LOCAL}/hdp.repo
-export AMBARI_DDL_URL=http://${REPO_HOST_ADDRESS_LOCAL}/ambari/${OS_VER}/sql/Ambari-DDL-Postgres-CREATE.sql
+export AMBARI_REPO_URL_BUILD=http://${REPO_HOST_ADDRESS_GLOBAL}/ambari_build.repo
+export HDP_REPO_URL_BUILD=http://${REPO_HOST_ADDRESS_GLOBAL}/hdp_build.repo
+export AMBARI_REPO_URL_RUN=http://${REPO_HOST_ADDRESS_GLOBAL}/ambari.repo
+export HDP_REPO_URL_RUN=http://${REPO_HOST_ADDRESS_GLOBAL}/hdp.repo
+export AMBARI_DDL_URL=http://${REPO_HOST_ADDRESS_GLOBAL}/ambari/${OS_VER}/sql/Ambari-DDL-Postgres-CREATE.sql
 
 
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
@@ -42,7 +45,7 @@ echo BASE_URL=$BASE_URL
 echo AMBARI_DDL_URL=$AMBARI_DDL_URL    
 echo AMBARI_REPO_URL=$AMBARI_REPO_URL
 echo HDP_REPO_URL=$HDP_REPO_URL
-echo REPO_HOST_ADDRESS_LOCAL=$REPO_HOST_ADDRESS_LOCAL
+echo REPO_HOST_ADDRESS_GLOBAL=$REPO_HOST_ADDRESS_GLOBAL
 echo AMBARI_REPO_URL_BUILD=$AMBARI_REPO_URL_BUILD
 echo HDP_REPO_URL_BUILD=$HDP_REPO_URL_BUILD    
 echo
