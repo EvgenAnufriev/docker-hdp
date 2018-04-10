@@ -14,11 +14,11 @@ services:
       image: hdp/repo-cache
       hostname: repo-cache
       domainname: dev
-      networks:
-            dev:
-              aliases:
-                  - repo-cache
-#      ports:
+#       networks:
+#             dev:
+#               aliases:
+#                   - repo-cache
+#       ports:
 #        - "8085:80"
 
 #networks:
