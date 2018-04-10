@@ -88,6 +88,6 @@ echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
 
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
 echo  Shutting down REPO-CACHE container
-docker-compose -f $HDP_REPO_NODE_COMPOSE_FILE down
+#docker-compose -f $HDP_REPO_NODE_COMPOSE_FILE down
 echo  Shutting down REPO-CACHE container competed
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#

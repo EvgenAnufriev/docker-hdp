@@ -18,9 +18,9 @@ services:
             dev:
               aliases:
                   - repo-cache
-      ports:
-        - "8085:80"
+#      ports:
+#        - "8085:80"
 
-networks:
-  dev:
-    driver: bridge
+#networks:
+#  dev:
+#    driver: bridge

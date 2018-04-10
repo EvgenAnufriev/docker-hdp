@@ -67,3 +67,5 @@ echo priority=1 >> hdp.repo
 #echo gpgcheck=0 >> smartsense.repo && \
 #echo enabled=1 >> smartsense.repo && \ 
 #echo priority=1 >> smartsense.repo
+
+EXPOSE 80
