@@ -1,4 +1,4 @@
-{ "blueprint":"multi-container",
+{ "blueprint":"HDP",
 "default_password" : "dev",
 "configurations" : [
   {
