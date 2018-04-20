@@ -2,7 +2,7 @@
 
 source ./env/set_env.sh
 
-export BASEURL=http://$REPO_HOST_ADDRESS/hdp/${OS_VER}/HDP-UTILS-${HDP_UTILS_VER}
+export BASEURL=http://$REPO_HOST_ADDRESS/hdp/${OS_VER}/HDP-${HDP_VER}
 export BLUEPRINT=blueprints/HDP.json
 export HOST_GROUPS=hostgroups/multi-container.json
 
