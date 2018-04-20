@@ -3,11 +3,12 @@
 source ./env/set_env.sh
 
 export BASEURL=http://$REPO_HOST_ADDRESS/hdp/${OS_VER}/HDP-${HDP_VER}
+export BASE_UTILS_URL=$REPO_HOST_ADDRESS/hdp/${OS_VER}/HDP-UTILS-${HDP_UTILS_VER}
 export BLUEPRINT=blueprints/HDP.json
 export HOST_GROUPS=hostgroups/multi-container.json
 
 export BASEURL_JSON='{"Repositories":{"repo_name": "'${HDP_VER}'", "base_url":"'$BASE_URL'", "verify_base_url":true}}'
-export BASEURL_UTILS_JSON='{"Repositories":{"repo_name": "'${HDP_VER}'", "base_url":"'$BASE_URL'", "verify_base_url":true}}'
+export BASEURL_UTILS_JSON='{"Repositories":{"repo_name": "'${HDP_VER}'", "base_url":"'$BASE_UTILS_URL'", "verify_base_url":true}}'
 
 docker-compose -f $HDP_COMPOSE_FILE up --detach --remove-orphans
 
@@ -25,7 +26,7 @@ echo BASEURL DONE
 
 
 echo HOST_GROUPS=$HOST_GROUPS
-curl --user admin:admin -H 'X-Requested-By:admin' -X POST $AMBARI_HOST/api/v1/clusters/dev --data-binary "@$HOST_GROUPS"
+#curl --user admin:admin -H 'X-Requested-By:admin' -X POST $AMBARI_HOST/api/v1/clusters/dev --data-binary "@$HOST_GROUPS"
 echo HOST_GROUPS DONE
 
 
