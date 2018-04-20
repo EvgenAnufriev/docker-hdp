@@ -8,10 +8,14 @@ export HDP_UTILS_VER=1.1.0.22
 export HDP_STACK=${HDP_VER:0:3}
 export AMBARI_STACK=${AMBARI_VER:0:3}
 
-#export AMBARI_HOST=localhost:8080
+export AMBARI_HOST=localhost:8080
+
+export HDP_COMPOSE_FILE=compose/multy-container.yml
+export HDP_REPO_NODE_COMPOSE_FILE=compose/repo-cache.yml
 
 
 #export BASE_URL=http://${REPO_HOST_ADDRESS}/HDP/centos$OS_VER/2.x/updates/$HDP_VER
+#baseurl=http://$REPO_HOST_ADDRESS/hdp/${OS_VER}/HDP-UTILS-${HDP_UTILS_VER}
 
 # Variables used while containers run
 export REPO_HOST_ADDRESS=repo-cache.dev
@@ -52,7 +56,6 @@ echo
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
 echo    
 
-# docker-compose build-args
-#AMBARI_DDL_URL=https://raw.githubusercontent.com/apache/ambari/branch-2.5/ambari-server/src/main/resources/Ambari-DDL-Postgres-CREATE.sql
-#AMBARI_REPO_URL=http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.5.2.0/ambari.repo
-#HDP_REPO_URL=http://public-repo-1.hortonworks.com/HDP/centos7/2.x/updates/2.6.2.0/hdp.repo
+
+
+

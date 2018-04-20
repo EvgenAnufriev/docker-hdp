@@ -23,6 +23,8 @@ services:
       - AMBARI_VER=${AMBARI_VER}
     hostname: postgres
     domainname: dev
+    ports:
+     - "5432:5432"
     networks:
         dev:
             aliases:
@@ -79,6 +81,7 @@ services:
      - "8020:8020"
      - "9000:9000"
      - "50090:50090"
+     - "50070:50070"
      # YARN
      - "8088:8088"
      - "8050:8050"

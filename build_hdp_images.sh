@@ -2,43 +2,14 @@
 
 HDP_REPO_BUILD=0
 HDP_REPO_BUILD_WITH=use-existing
+#cache
 #no-cache
 #use-existing
 
-HDP_SINGLE_NODE_COMPOSE_FILE=compose/single-container.yml
-HDP_REPO_NODE_COMPOSE_FILE=compose/repo-cache.yml
+HDP_BUILD_WITH=cache
+#no-cache
+#cache
 
-
-usage() {
-  exitcode="$1"
-  cat << USAGE >&2
-Usage:
-  $cmdname [--build-hdp-repo]
-  --build-hdp-repo=\{cache, no-cache, use-existing\}     Before building images for HDP cluster script builds REPO-CACHE image.
-  --help                                            Print this help 
-USAGE
-  exit "$exitcode"
-}
-
-while [ $# -gt 0 ]
-do
-  case "$1" in
-    --build-hdp-repo)
-     HDP_REPO_BUILD=1
-    shift
-    break 
-    ;;
-    --help)
-    usage 0
-    break
-    ;;
-    *)
-    echo "Unknown argument: $1"
-    usage 1
-    break
-    ;;
-  esac
-done
 
 source ./env/set_env.sh
 
@@ -58,7 +29,7 @@ if [ $HDP_REPO_BUILD -eq 1 ]; then
    	cache)
    	    echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
    	    echo Start building new REPO-CACHE image using cache	 	
-	    docker-compose -f $HDP_REPO_NODE_COMPOSE_FILE build
+	      docker-compose -f $HDP_REPO_NODE_COMPOSE_FILE build
    	    echo Building REPO-CACHE image completed	 	
    	    echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
    		;;
@@ -82,12 +53,32 @@ echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
 
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
 echo Start building new HDP cluster images
-docker-compose -f $HDP_SINGLE_NODE_COMPOSE_FILE build --no-cache
+
+   case "$HDP_BUILD_WITH" in
+    no-cache)
+        echo With no-cache option    
+        docker-compose -f $HDP_COMPOSE_FILE build --no-cache
+      ;;
+    cache)
+        echo With cache option
+       docker-compose -f $HDP_COMPOSE_FILE build 
+      ;;  
+   esac
+
+
 echo Build new HDP cluster images
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
 
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
 echo  Shutting down REPO-CACHE container
-#docker-compose -f $HDP_REPO_NODE_COMPOSE_FILE down
+
+docker-compose -f $HDP_REPO_NODE_COMPOSE_FILE down
+
 echo  Shutting down REPO-CACHE container competed
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
+
+
+
+
+
+
