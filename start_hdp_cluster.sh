@@ -7,6 +7,7 @@ export BLUEPRINT=blueprints/HDP.json
 export HOST_GROUPS=hostgroups/multi-container.json
 
 export BASEURL_JSON='{"Repositories":{"repo_name": "'${HDP_VER}'", "base_url":"'$BASE_URL'", "verify_base_url":true}}'
+export BASEURL_UTILS_JSON='{"Repositories":{"repo_name": "'${HDP_VER}'", "base_url":"'$BASE_URL'", "verify_base_url":true}}'
 
 docker-compose -f $HDP_COMPOSE_FILE up --detach --remove-orphans
 
@@ -17,7 +18,9 @@ curl --user admin:admin -H 'X-Requested-By:admin' -X POST $AMBARI_HOST/api/v1/bl
 echo BLUEPRINT DONE
 
 echo BASEURL=$BASEURL
+echo BASEURL_UTILS_JSON=$BASEURL_UTILS_JSON
 curl --user admin:admin -H 'X-Requested-By:admin' -X PUT $AMBARI_HOST/api/v1/stacks/HDP/versions/$HDP_STACK/operating_systems/redhat$OS_VER/repositories/HDP-${HDP_STACK} -d $BASEURL_JSON
+curl --user admin:admin -H 'X-Requested-By:admin' -X PUT $AMBARI_HOST/api/v1/stacks/HDP/versions/$HDP_STACK/operating_systems/redhat$OS_VER/repositories/HDP-${HDP_UTILS_VER} -d $BASEURL_UTILS_JSON
 echo BASEURL DONE
 
 
