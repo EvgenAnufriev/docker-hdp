@@ -2152,9 +2152,6 @@
     {
       "components" : [
         {
-          "name" : "LIVY_SERVER"
-        },
-        {
           "name" : "HIVE_SERVER"
         },
         {
@@ -2200,16 +2197,10 @@
           "name" : "LIVY2_SERVER"
         },
         {
-          "name" : "SPARK_THRIFTSERVER"
-        },
-        {
           "name" : "METRICS_COLLECTOR"
         },
         {
           "name" : "METRICS_GRAFANA"
-        },
-        {
-          "name" : "SPARK_CLIENT"
         },
         {
           "name" : "YARN_CLIENT"
@@ -2262,9 +2253,6 @@
       "components" : [
         {
           "name" : "NODEMANAGER"
-        },
-        {
-          "name" : "SPARK_CLIENT"
         },
         {
           "name" : "YARN_CLIENT"
