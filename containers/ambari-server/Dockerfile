@@ -3,6 +3,7 @@ ARG AMBARI_REPO_URL_BUILD
 ARG HDP_REPO_URL_BUILD
 ARG AMBARI_REPO_URL_RUN
 ARG HDP_REPO_URL_RUN
+ARG AMBARI_VDF_REPO_URL_RUN
 
 RUN yum install -y wget sudo net-tools
 
@@ -21,6 +22,7 @@ RUN rm -f /etc/yum.repos.d/ambari_build.repo && \
  rm -f /etc/yum.repos.d/hdp_build.repo
 
 RUN wget -nv ${AMBARI_REPO_URL_RUN} -O /etc/yum.repos.d/ambari.repo && \
-  wget -nv ${HDP_REPO_URL_RUN} -O /etc/yum.repos.d/hdp.repo
+  wget -nv ${HDP_REPO_URL_RUN} -O /etc/yum.repos.d/hdp.repo \
+  wget -nv ${AMBARI_VDF_REPO_URL_RUN} -O /tmp/AMBARI-VDF.xml
 
 CMD /start.sh

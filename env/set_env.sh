@@ -33,6 +33,7 @@ export AMBARI_REPO_URL_RUN=http://${REPO_HOST_ADDRESS_GLOBAL}/ambari.repo
 export HDP_REPO_URL_RUN=http://${REPO_HOST_ADDRESS_GLOBAL}/hdp.repo
 export AMBARI_DDL_URL=http://${REPO_HOST_ADDRESS_GLOBAL}/ambari/${OS_VER}/sql/Ambari-DDL-Postgres-CREATE.sql
 
+export AMBARI_VDF_REPO_URL_RUN=http://${REPO_HOST_ADDRESS_GLOBAL}/AMBARI-VDF.xml
 
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
 echo 

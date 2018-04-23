@@ -40,12 +40,14 @@ services:
         - HDP_REPO_URL_BUILD=${HDP_REPO_URL_BUILD}
         - AMBARI_REPO_URL_RUN=${AMBARI_REPO_URL_RUN}
         - HDP_REPO_URL_RUN=${HDP_REPO_URL_RUN}
+        - AMBARI_VDF_REPO_URL_RUN=${AMBARI_VDF_REPO_URL_RUN}
     image: hdp/ambari-server
     environment:
         - AMBARI_REPO_URL_BUILD=${AMBARI_REPO_URL_BUILD}
         - HDP_REPO_URL_BUILD=${HDP_REPO_URL_BUILD}
         - AMBARI_REPO_URL_RUN=${AMBARI_REPO_URL_RUN}
         - HDP_REPO_URL_RUN=${HDP_REPO_URL_RUN}
+        - AMBARI_VDF_REPO_URL_RUN=${AMBARI_VDF_REPO_URL_RUN}
     hostname: ambari-server
     domainname: dev
     networks:
