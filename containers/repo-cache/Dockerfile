@@ -96,6 +96,6 @@ echo gpgcheck=0 >> hdp.repo  && \
 echo enabled=1 >> hdp.repo  && \
 echo priority=1 >> hdp.repo
 
-ADD AMBARI-VDF.xml /var/www/html/AMBARI-VDF.xml
+ADD ../../AMBARI-VDF.xml /var/www/html/AMBARI-VDF.xml
 
 EXPOSE 80
