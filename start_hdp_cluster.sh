@@ -19,7 +19,7 @@ echo BLUEPRINT =$BLUEPRINT
 curl --user admin:admin -H 'X-Requested-By:admin' -X POST $AMBARI_HOST/api/v1/blueprints/HDP --data-binary "@$BLUEPRINT"
 echo BLUEPRINT DONE
 
-echo BASEURL=$BASE_URL
+echo BASE_URL=$BASE_URL
 echo BASEURL_UTILS_JSON=$BASEURL_UTILS_JSON
 curl --user admin:admin -H 'X-Requested-By:admin' -X PUT $AMBARI_HOST/api/v1/stacks/HDP/versions/$HDP_STACK/operating_systems/redhat$OS_VER/repositories/HDP-${HDP_STACK} -d $BASEURL_JSON
 curl --user admin:admin -H 'X-Requested-By:admin' -X PUT $AMBARI_HOST/api/v1/stacks/HDP/versions/$HDP_STACK/operating_systems/redhat$OS_VER/repositories/HDP-${HDP_UTILS_VER} -d $BASEURL_UTILS_JSON
