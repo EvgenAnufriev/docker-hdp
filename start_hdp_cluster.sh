@@ -4,6 +4,7 @@ source ./env/set_env.sh
 
 export BASE_URL=http://$REPO_HOST_ADDRESS/hdp/${OS_VER}/HDP-${HDP_VER}
 export BASE_UTILS_URL=$REPO_HOST_ADDRESS/hdp/${OS_VER}/HDP-UTILS-${HDP_UTILS_VER}
+
 export BLUEPRINT=blueprints/HDP.json
 export HOST_GROUPS=hostgroups/multi-container.json
 
@@ -18,7 +19,7 @@ echo BLUEPRINT =$BLUEPRINT
 curl --user admin:admin -H 'X-Requested-By:admin' -X POST $AMBARI_HOST/api/v1/blueprints/HDP --data-binary "@$BLUEPRINT"
 echo BLUEPRINT DONE
 
-echo BASEURL=$BASEURL
+echo BASEURL=$BASE_URL
 echo BASEURL_UTILS_JSON=$BASEURL_UTILS_JSON
 curl --user admin:admin -H 'X-Requested-By:admin' -X PUT $AMBARI_HOST/api/v1/stacks/HDP/versions/$HDP_STACK/operating_systems/redhat$OS_VER/repositories/HDP-${HDP_STACK} -d $BASEURL_JSON
 curl --user admin:admin -H 'X-Requested-By:admin' -X PUT $AMBARI_HOST/api/v1/stacks/HDP/versions/$HDP_STACK/operating_systems/redhat$OS_VER/repositories/HDP-${HDP_UTILS_VER} -d $BASEURL_UTILS_JSON
