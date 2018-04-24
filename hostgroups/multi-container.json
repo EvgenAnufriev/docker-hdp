@@ -1,5 +1,6 @@
 { "blueprint":"HDP",
 "default_password" : "dev",
+"repository_version_id": 1,
 "configurations" : [
   {
     "hive-site" : {
