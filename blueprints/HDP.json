@@ -2331,7 +2331,7 @@
       ]
     }
   ],
-  "repository_version_id": 1,
+  "repository_id": 1,
   "Blueprints" : {
     "stack_name" : "HDP",
     "stack_version" : "2.6"
