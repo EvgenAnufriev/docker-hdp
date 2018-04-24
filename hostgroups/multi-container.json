@@ -15,7 +15,7 @@
     "hosts":[ { "fqdn":"datanode0.dev" } , { "fqdn":"datanode1.dev" } ]
   },
   { "name":"host_group_2",
-    "hosts":[ { "fqdn":"master0.dev" } ]
+    "hosts":[ { "fqdn":"master.dev" } ]
   }
 ]
 }
