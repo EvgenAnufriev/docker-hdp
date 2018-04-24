@@ -18,6 +18,10 @@ docker-compose -f $HDP_COMPOSE_FILE up --detach --remove-orphans
 
 sleep 60
 
+echo REGISTER VDF
+curl --user admin:admin -H "X-Requested-By:admin" -X POST $AMBARI_HOST/api/v1/version_definitions -d '{"VersionDefinition":{"version_url": "file:/tmp/AMBARI-VDF.xml"}}'
+echo REGISTER VDF DONE
+
 echo BLUEPRINT =$BLUEPRINT 
 curl --user admin:admin -H 'X-Requested-By:admin' -X POST $AMBARI_HOST/api/v1/blueprints/HDP --data-binary "@$BLUEPRINT"
 echo BLUEPRINT DONE
@@ -28,12 +32,6 @@ echo BLUEPRINT DONE
 #curl --user admin:admin -H 'X-Requested-By:admin' -X PUT $AMBARI_HOST/api/v1/stacks/HDP/versions/$HDP_STACK/operating_systems/redhat$OS_VER/repositories/HDP-${HDP_UTILS_VER} -d $BASEURL_UTILS_JSON
 #echo BASE_URL_REPO DONE
 
-
-echo REGISTER VDF
-
-curl -v -k --user admin:admin -H "X-Requested-By:ambari" -X POST $AMBARI_HOST/api/v1/version_definitions -d '{"VersionDefinition":{"version_url": "file:/tmp/AMBARI-VDF.xml"}}'
-
-echo REGISTER VDF DONE
 
 echo HOST_GROUPS=$HOST_GROUPS
 curl --user admin:admin -H 'X-Requested-By:admin' -X POST $AMBARI_HOST/api/v1/clusters/dev --data-binary "@$HOST_GROUPS"
