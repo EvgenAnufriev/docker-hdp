@@ -13,7 +13,8 @@ services:
   
   postgres.dev:
     build:
-     context: ../containers/postgres
+      context: ./
+#     context: ../containers/postgres
      args:
       - AMBARI_DDL_URL=${AMBARI_DDL_URL}
       - AMBARI_VER=${AMBARI_VER}
@@ -34,7 +35,8 @@ services:
 
   ambari-server.dev:
     build: 
-      context: ../containers/ambari-server
+      context: ./
+      #context: ../containers/ambari-server
       args:
         - AMBARI_REPO_URL_BUILD=${AMBARI_REPO_URL_BUILD}
         - HDP_REPO_URL_BUILD=${HDP_REPO_URL_BUILD}
@@ -60,7 +62,8 @@ services:
      - "8080:8080"
   master.dev:
     build:
-      context: ../containers/node
+      context: ./
+#      context: ../containers/node
       args:
         - AMBARI_REPO_URL_BUILD=${AMBARI_REPO_URL_BUILD}
         - HDP_REPO_URL_BUILD=${HDP_REPO_URL_BUILD}
@@ -133,7 +136,8 @@ services:
      - "8042:8042"
   datanode0.dev:
     build:
-      context: ../containers/node
+       context: ./
+#     context: ../containers/node
       args:
         - AMBARI_REPO_URL_BUILD=${AMBARI_REPO_URL_BUILD}
         - HDP_REPO_URL_BUILD=${HDP_REPO_URL_BUILD}
@@ -151,7 +155,8 @@ services:
     domainname: dev
   datanode1.dev:
     build:
-      context: ../containers/node
+      context: ./
+#      context: ../containers/node
       args:
         - AMBARI_REPO_URL_BUILD=${AMBARI_REPO_URL_BUILD}
         - HDP_REPO_URL_BUILD=${HDP_REPO_URL_BUILD}
