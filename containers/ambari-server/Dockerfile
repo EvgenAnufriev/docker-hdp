@@ -25,4 +25,6 @@ RUN wget -nv ${AMBARI_REPO_URL_RUN} -O /etc/yum.repos.d/ambari.repo && \
   wget -nv ${HDP_REPO_URL_RUN} -O /etc/yum.repos.d/hdp.repo && \
   wget -nv ${AMBARI_VDF_REPO_URL_RUN} -O /tmp/AMBARI-VDF.xml
 
+COPY ../../deploy /tmp
+
 CMD /start.sh
