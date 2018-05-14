@@ -24,7 +24,11 @@ export HDP_REPO_URL=http://${REPO_HOST_ADDRESS}/hdp.repo
 
 
 #Varibale used while building images
-MyIP="$(ip a show dev docker0 | grep -w inet | awk -F' ' {'print $2'} | awk -F'/' {'print $1'})"
+## If host is CentOS/Linux
+#MyIP="$(ip a show dev docker0 | grep -w inet | awk -F' ' {'print $2'} | awk -F'/' {'print $1'})"
+
+#if host is Mac
+MyIP="$(ip addr show dev en4 | grep -w inet | awk -F' ' {'print $2'} | awk -F'/' {'print $1'})"
 export REPO_HOST_ADDRESS_GLOBAL=${MyIP}:8085
 
 export AMBARI_REPO_URL_BUILD=http://${REPO_HOST_ADDRESS_GLOBAL}/ambari_build.repo

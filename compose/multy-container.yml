@@ -10,7 +10,7 @@ services:
             dev:
               aliases:
                   - repo-cache
-  
+
   postgres.dev:
     build:
      context: ../containers/postgres
@@ -33,7 +33,7 @@ services:
       - repo-cache.dev
 
   ambari-server.dev:
-    build: 
+    build:
       context: ../containers/ambari-server
       args:
         - AMBARI_REPO_URL_BUILD=${AMBARI_REPO_URL_BUILD}
@@ -149,24 +149,24 @@ services:
       - repo-cache.dev
     hostname: datanode0
     domainname: dev
-  datanode1.dev:
-    build:
-      context: ../containers/node
-      args:
-        - AMBARI_REPO_URL_BUILD=${AMBARI_REPO_URL_BUILD}
-        - HDP_REPO_URL_BUILD=${HDP_REPO_URL_BUILD}
-        - AMBARI_REPO_URL_RUN=${AMBARI_REPO_URL_RUN}
-        - HDP_REPO_URL_RUN=${HDP_REPO_URL_RUN}
-    image: hdp/node
-    privileged: true
-    networks:
-        dev:
-            aliases:
-                - datanode1
-    depends_on:
-      - repo-cache.dev
-    hostname: datanode1
-    domainname: dev
+#  datanode1.dev:
+    # build:
+    #   context: ../containers/node
+    #   args:
+    #     - AMBARI_REPO_URL_BUILD=${AMBARI_REPO_URL_BUILD}
+    #     - HDP_REPO_URL_BUILD=${HDP_REPO_URL_BUILD}
+    #     - AMBARI_REPO_URL_RUN=${AMBARI_REPO_URL_RUN}
+    #     - HDP_REPO_URL_RUN=${HDP_REPO_URL_RUN}
+    # image: hdp/node
+    # privileged: true
+    # networks:
+    #     dev:
+    #         aliases:
+    #             - datanode1
+    # depends_on:
+    #   - repo-cache.dev
+    # hostname: datanode1
+    # domainname: dev
 networks:
   dev:
     driver: bridge

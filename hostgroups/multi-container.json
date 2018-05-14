@@ -12,7 +12,7 @@
 ],
 "host_groups":[
   { "name":"host_group_1",
-    "hosts":[ { "fqdn":"datanode0.dev" } , { "fqdn":"datanode1.dev" } ]
+    "hosts":[ { "fqdn":"datanode0.dev" } ]
   },
   { "name":"host_group_2",
     "hosts":[ { "fqdn":"master.dev" } ]
