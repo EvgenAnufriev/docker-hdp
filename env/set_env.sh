@@ -25,10 +25,10 @@ export HDP_REPO_URL=http://${REPO_HOST_ADDRESS}/hdp.repo
 
 #Varibale used while building images
 ## If host is CentOS/Linux
-#MyIP="$(ip a show dev docker0 | grep -w inet | awk -F' ' {'print $2'} | awk -F'/' {'print $1'})"
+MyIP="$(ip a show dev docker0 | grep -w inet | awk -F' ' {'print $2'} | awk -F'/' {'print $1'})"
 
 #if host is Mac
-MyIP="$(ip addr show dev en4 | grep -w inet | awk -F' ' {'print $2'} | awk -F'/' {'print $1'})"
+#MyIP="$(ip addr show dev en4 | grep -w inet | awk -F' ' {'print $2'} | awk -F'/' {'print $1'})"
 export REPO_HOST_ADDRESS_GLOBAL=${MyIP}:8085
 
 export AMBARI_REPO_URL_BUILD=http://${REPO_HOST_ADDRESS_GLOBAL}/ambari_build.repo
@@ -40,9 +40,9 @@ export AMBARI_DDL_URL=http://${REPO_HOST_ADDRESS_GLOBAL}/ambari/${OS_VER}/sql/Am
 export AMBARI_VDF_REPO_URL_RUN=http://${REPO_HOST_ADDRESS_GLOBAL}/AMBARI-VDF.xml
 
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
-echo 
+echo
 echo Environment settings
-echo 
+echo
 echo OS_VER=$OS_VER
 echo AMBARI_VER=$AMBARI_VER
 echo HDP_VER=$HDP_VER
@@ -51,16 +51,12 @@ echo HDP_STACK=$HDP_STACK
 echo AMBARI_STACK=$AMBARI_STACK
 echo AMBARI_HOST=$AMBARI_HOST
 echo BASE_URL=$BASE_URL
-echo AMBARI_DDL_URL=$AMBARI_DDL_URL    
+echo AMBARI_DDL_URL=$AMBARI_DDL_URL
 echo AMBARI_REPO_URL=$AMBARI_REPO_URL
 echo HDP_REPO_URL=$HDP_REPO_URL
 echo REPO_HOST_ADDRESS_GLOBAL=$REPO_HOST_ADDRESS_GLOBAL
 echo AMBARI_REPO_URL_BUILD=$AMBARI_REPO_URL_BUILD
-echo HDP_REPO_URL_BUILD=$HDP_REPO_URL_BUILD    
+echo HDP_REPO_URL_BUILD=$HDP_REPO_URL_BUILD
 echo
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
-echo    
-
-
-
-
+echo

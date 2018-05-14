@@ -25,7 +25,7 @@ echo REGISTER VDF
 curl --user admin:admin -H "X-Requested-By:admin" -X POST $AMBARI_HOST/api/v1/version_definitions -d '{"VersionDefinition":{"version_url": "file:/tmp/AMBARI-VDF.xml"}}'
 echo REGISTER VDF DONE
 
-echo BLUEPRINT =$BLUEPRINT 
+echo BLUEPRINT =$BLUEPRINT
 curl --user admin:admin -H 'X-Requested-By:admin' -X POST $AMBARI_HOST/api/v1/blueprints/HDP --data-binary "@$BLUEPRINT"
 echo BLUEPRINT DONE
 
